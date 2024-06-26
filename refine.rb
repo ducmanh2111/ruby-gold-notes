@@ -52,21 +52,52 @@
 
 # =====NEXT QUESTION=====
 
+# class C
+#   def self.m1
+#     200
+#   end
+# end
+
+# module R
+#   refine C.singleton_class do
+# 		p self.class	#=> Refinement class
+#     def m1
+#       100
+#     end
+#   end
+# end
+
+# using R
+
+# puts C.m1
+
+# =====NEXT QUESTION=====
+
 class C
-  def self.m1
+  def m1
+		p "call m1 in base C class"
     200
   end
 end
 
 module R
-  refine C.singleton_class do
-		p self.class	#=> Refinement class
+  refine C do
     def m1
-      100
+			p "call m1 in refine"
+			# super
+      300
     end
   end
 end
 
 using R
 
-puts C.m1
+class C
+  def m1
+		p "call m1 in overide m1"
+		# super
+    100
+  end
+end
+
+puts C.new.m1

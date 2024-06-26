@@ -10,15 +10,20 @@
 refine(mod) { block } → module
 ```
 - Explain: Refine *mod* in the receiver.
+- When searching for methods redefined with Refinement, the search takes precedence over `prepend`
+For example, if class C inherits class B, the search will be performed in the following order:
+```ruby
+[Refinement, prepended module, class C, included module, parent of class C (class B)]
+```
 
-3. Instance method `Module#using`
+1. Instance method `Module#using`
 - Syntax:
 ```ruby
 using(module) → self
 ```
 - Explain: Import class refinements from *module* into the current class or module definition.
 
-4. Keyword `alias`, Method `alias_method`
+1. Keyword `alias`, Method `alias_method`
 - Syntax:
 ```ruby
 alias :new_name :old_name
