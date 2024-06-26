@@ -29,28 +29,53 @@
 
 # =====NEXT QUESTION=====
 
-module M
-  def foo
-    super
-    puts "M#foo"
-  end
-end
+# module M
+#   def foo
+#     super
+#     puts "M#foo"
+#   end
+# end
 
-class C2
-  def foo
-    puts "C2#foo"
-  end
-end
+# class C2
+#   def foo
+#     puts "C2#foo"
+#   end
+# end
 
-class C < C2
-  def foo
-    super
-    puts "C#foo"
-  end
-  include M
-end
+# class C < C2
+#   def foo
+#     super
+#     puts "C#foo"
+#   end
+#   include M
+# end
 
-C.new.foo
+# C.new.foo
 # C2#foo
 # M#foo
 # C#foo
+
+# =====NEXT QUESTION=====
+
+# module M
+#   def refer_const
+#     CONST
+#   end
+# end
+
+# module E
+#   CONST = '010'
+# end
+
+# class D
+#   CONST = "001"
+# end
+
+# class C < D
+#   include E
+#   include M
+#   CONST = '100'
+# end
+
+# c = C.new
+# p c.refer_const #=> uninitialized constant M::CONST (NameError)
