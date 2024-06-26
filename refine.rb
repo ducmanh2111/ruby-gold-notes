@@ -31,6 +31,27 @@
 
 # =====NEXT QUESTION=====
 
+# class C
+#   def self.m1
+#     200
+#   end
+# end
+
+# module R
+#   refine C do
+# 		p self.class	#=> Refinement class
+#     def self.m1
+#       100
+#     end
+#   end
+# end
+
+# using R
+
+# puts C.m1	#=> 200
+
+# =====NEXT QUESTION=====
+
 class C
   def self.m1
     200
@@ -38,9 +59,9 @@ class C
 end
 
 module R
-  refine C do
+  refine C.singleton_class do
 		p self.class	#=> Refinement class
-    def self.m1
+    def m1
       100
     end
   end
@@ -48,4 +69,4 @@ end
 
 using R
 
-puts C.m1	#=> 200
+puts C.m1
