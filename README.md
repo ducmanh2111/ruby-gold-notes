@@ -13,3 +13,10 @@ Other similar classes of operations are summerized below:
 - `-d`: turns on debug mode, `$DEBUG` will set true
 - `-r filename`: causes Ruby to load the file using `require`. It is useful with switches `-n` or `-p`
 References: [options](https://ruby-doc.org/docs/ruby-doc-bundle/Manual/man-1.4/options.html)
+
+3. `Object#methods`
+- returns a list of the names of public and protected methods of *obj*. This will include all the methods accessible in *obj's* ancestors. If the optional parameter is *false*, it returns an array of *obj*'s public and protected singleton methods, the array will not include methods in modules included in *obj*
+- Syntax: 
+```ruby
+methods(regular=true) -> array
+```

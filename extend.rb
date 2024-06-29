@@ -56,23 +56,41 @@
 #=> "Ancestors of class C is: [C, M, N, P, Object, Kernel, BasicObject]"
 
 # =====NEXT QUESTION=====
-module M
+# module M
   
-end
+# end
 
-module N
+# module N
   
+# end
+
+# class C
+#   include M,N
+#   prepend M,N
+#   extend M,N
+# end
+
+# p "Ancestors of class C is: #{C.ancestors}"
+# #=> "Ancestors of class C is: [M, N, C, M, N, Object, Kernel, BasicObject]"
+# # To summarize: Module#prepend like Array#unshift method, whild Module#include like Array#append (or Array#push) method.
+
+# p "Ancestors of singleton class of C is: #{C.singleton_class.ancestors}"
+# #=> "Ancestors of singleton class of C is: [#<Class:C>, M, N, #<Class:Object>, #<Class:BasicObject>, Class, Module, Object, Kernel, BasicObject]"
+
+# =====NEXT QUESTION=====
+
+module M
+  def class_m
+    "class_m"
+  end
 end
 
 class C
-  include M,N
-  prepend M,N
-  extend M,N
+  include M
+  extend M
 end
 
-p "Ancestors of class C is: #{C.ancestors}"
-#=> "Ancestors of class C is: [M, N, C, M, N, Object, Kernel, BasicObject]"
-# To summarize: Module#prepend like Array#unshift method, whild Module#include like Array#append (or Array#push) method.
-
-p "Ancestors of singleton class of C is: #{C.singleton_class.ancestors}"
-#=> "Ancestors of singleton class of C is: [#<Class:C>, M, N, #<Class:Object>, #<Class:BasicObject>, Class, Module, Object, Kernel, BasicObject]"
+p C.methods.include? :class_m
+#=> true
+p C.new.methods.include? :class_m
+#=> true
