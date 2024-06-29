@@ -7,7 +7,7 @@ Other similar classes of operations are summerized below:
 
 2. Options available in Ruby
 - `-l` : Execute `String#chop!` at the end of each line
-- `n`: cases Ruby to assume the following loop around your script, which makes it iterate over filename arguments somewhat like `sed -n` or `awk`
+- `-n`: cases Ruby to assume the following loop around your script, which makes it iterate over filename arguments somewhat like `sed -n` or `awk`
 - `-p`: Similar to `-n` but output `$_`
 - `-t`, `-f`: Not support
 - `-d`: turns on debug mode, `$DEBUG` will set true
