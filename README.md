@@ -20,3 +20,5 @@ References: [options](https://ruby-doc.org/docs/ruby-doc-bundle/Manual/man-1.4/o
 ```ruby
 methods(regular=true) -> array
 ```
+
+4. `using` cannot be called inside a method. If called, a **RuntimeError** will occur.
