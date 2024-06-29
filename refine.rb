@@ -73,31 +73,52 @@
 
 # =====NEXT QUESTION=====
 
+# class C
+#   def m1
+# 		p "call m1 in base C class"
+#     200
+#   end
+# end
+
+# module R
+#   refine C do
+#     def m1
+# 			p "call m1 in refine"
+# 			# super
+#       300
+#     end
+#   end
+# end
+
+# using R
+
+# class C
+#   def m1
+# 		p "call m1 in overide m1"
+# 		# super
+#     100
+#   end
+# end
+
+# puts C.new.m1
+
+# =====NEXT QUESTION=====
 class C
   def m1
-		p "call m1 in base C class"
-    200
+    400
   end
 end
 
-module R
+module M
   refine C do
     def m1
-			p "call m1 in refine"
-			# super
-      300
+      100
     end
   end
 end
 
-using R
-
 class C
-  def m1
-		p "call m1 in overide m1"
-		# super
-    100
-  end
+  using M
 end
 
-puts C.new.m1
+puts C.new.m1 # 400
