@@ -97,3 +97,12 @@ end
 p C.methods.include? :class_m #=> false
 p M.class_m #=> "M.class_m"
 p C.class_m #=> NoMethodError
+
+# =====NEXT QUESTION=====
+class C
+protected
+  def initialize
+  end
+end
+  
+p C.new.methods.include? :initialize  # false
