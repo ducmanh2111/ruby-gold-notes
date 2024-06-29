@@ -53,3 +53,20 @@
 # c.foo
 # p C.class_variable_get(:@@val)
 # #=> 30
+
+# =====NEXT QUESTION=====
+# class Object
+#   CONST = "100"
+# end
+
+# class C
+#   CONST = "010"
+#   class << self
+#     CONST = "001"
+#   end
+# end
+
+# p C::CONST  # "010"
+# p C.singleton_class::CONST  # "001"
+
+# =====NEXT QUESTION=====

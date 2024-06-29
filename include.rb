@@ -79,3 +79,21 @@
 
 # c = C.new
 # p c.refer_const #=> uninitialized constant M::CONST (NameError)
+
+# =====NEXT QUESTION=====
+
+module M
+  def self.class_m
+    p self
+    "M.class_m"
+  end
+end
+
+class C
+  include M
+  extend M
+end
+
+p C.methods.include? :class_m #=> false
+p M.class_m #=> "M.class_m"
+p C.class_m #=> NoMethodError
