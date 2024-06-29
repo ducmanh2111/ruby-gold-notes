@@ -21,7 +21,7 @@ References: [options](https://ruby-doc.org/docs/ruby-doc-bundle/Manual/man-1.4/o
 methods(regular=true) -> array
 ```
 
-4. `using` cannot be called inside a method. If called, a **RuntimeError** will occur.
+4. `Module#using` cannot be called inside a method. If called, a **RuntimeError** will occur.
 
 5. `Proc#yield` is the alias of `Proc#call`. So we can use each either
 ```ruby
