@@ -40,3 +40,5 @@ or
 block.yield(args)
 ```
 6. If the `::` operator appears at the beginning, constant search is performed from the top level.
+
+7. `BasicObject#method_missing` is called when a method is not found after following the inheritance chain. `BasicObject#method_missing` also follows the inheritance chain.
