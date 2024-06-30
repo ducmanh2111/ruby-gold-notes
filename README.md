@@ -42,3 +42,11 @@ block.yield(args)
 6. If the `::` operator appears at the beginning, constant search is performed from the top level.
 
 7. `BasicObject#method_missing` is called when a method is not found after following the inheritance chain. `BasicObject#method_missing` also follows the inheritance chain.
+
+8. `%` notation
+`%` is called % notation.
+- `%a/ /`: There is no such notation
+- `%/ /`: double quote string
+- `%r/ /`: regular expression` 
+- `%w/ /`: array whose elements are strings 
+- Please refer to the [Ruby reference](https://docs.ruby-lang.org/ja/2.1.0/doc/spec=2fliteral.html#percent) for detailed explanation.
