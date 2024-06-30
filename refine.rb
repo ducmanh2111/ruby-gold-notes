@@ -103,22 +103,51 @@
 # puts C.new.m1
 
 # =====NEXT QUESTION=====
+# class C
+#   def m1
+#     400
+#   end
+# end
+
+# module M
+#   refine C do
+#     def m1
+#       100
+#     end
+#   end
+# end
+
+# class C
+#   using M
+# end
+
+# puts C.new.m1 # 400
+
+# =====NEXT QUESTION=====
 class C
-  def m1
-    400
+  def foo
+    p "bar"
   end
 end
 
 module M
   refine C do
-    def m1
-      100
+    def foo
+      super
+      p "foo method in the refinement class invoked!!"
     end
   end
 end
 
 class C
   using M
+  
+  def baz
+    foo
+  end
 end
 
-puts C.new.m1 # 400
+c = C.new
+c.baz
+# "bar"
+# "foo method in the refinement class invoked!!"
