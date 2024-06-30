@@ -39,3 +39,4 @@ or
 
 block.yield(args)
 ```
+6. If the `::` operator appears at the beginning, constant search is performed from the top level.
