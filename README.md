@@ -50,3 +50,5 @@ block.yield(args)
 - `%r/ /`: regular expression` 
 - `%w/ /`: array whose elements are strings 
 - Please refer to the [Ruby reference](https://docs.ruby-lang.org/ja/2.1.0/doc/spec=2fliteral.html#percent) for detailed explanation.
+
+9. Public `Object#instance_variables`: returns an array of instance variable names for the receiver. Note that simply defining an accessor does not create the corresponding instance variable.
