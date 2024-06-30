@@ -47,24 +47,46 @@
 
 # =====NEXT QUESTION=====
 
-class C
-  CONST = "Good, night"
-end
+# class C
+#   CONST = "Good, night"
+# end
 
-module M
-  CONST = "Good, evening"
-end
+# module M
+#   CONST = "Good, evening"
+# end
 
-module M
-  class C
-    CONST = "Hello, world"
-  end
-end
+# module M
+#   class C
+#     CONST = "Hello, world"
+#   end
+# end
 
-module M
-  class ::C
-    p CONST
-  end
-end
+# module M
+#   class ::C
+#     p CONST
+#   end
+# end
 
 # "Good, night"
+
+# =====NEXT QUESTION=====
+
+module M
+  CONST = "Hello, world"
+end
+
+class M::C
+  def awesome_method
+    CONST
+  end
+end
+
+# module M
+#   class C
+#     def awesome_method
+#       CONST
+#     end
+#   end
+# end
+
+p M::C.new.awesome_method # uninitialized constant M::C::CONST (NameError)
