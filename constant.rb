@@ -14,33 +14,57 @@
 # p C.class.constants
 
 # =====NEXT QUESTION=====
-class Base
-  CONST = "Hello, world"
-end
+# class Base
+#   CONST = "Hello, world"
+# end
 
-class C < Base
-end
+# class C < Base
+# end
 
-module P
+# module P
+#   CONST = "Good, night"
+# end
+
+# class Base
+#   prepend P
+# end
+
+# module M
+#   class C
+#     CONST = "Good, evening"
+#   end
+# end
+
+# module M
+#   class ::C
+#     def greet
+#       CONST
+#     end
+#   end
+# end
+
+# p C.new.greet # "Good, night"
+
+# =====NEXT QUESTION=====
+
+class C
   CONST = "Good, night"
 end
 
-class Base
-  prepend P
+module M
+  CONST = "Good, evening"
 end
 
 module M
   class C
-    CONST = "Good, evening"
+    CONST = "Hello, world"
   end
 end
 
 module M
   class ::C
-    def greet
-      CONST
-    end
+    p CONST
   end
 end
 
-p C.new.greet # "Good, night"
+# "Good, night"
