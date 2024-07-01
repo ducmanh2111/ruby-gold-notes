@@ -74,3 +74,14 @@ alias_method(new_name, old_name) -> symbol
 
 14. Only `date` library has the `Date` and `DateTime` object, and only `DateTime` has method `now`.
 `Time` has method now too, but the result is `Float`, not `Rational`
+
+15. Top-level definition method is private method of `Object`
+
+16. The ancestry chain for each of the classes listed in this question is as follows
+```ruby
+ArgumentError < StandardError < Exception
+
+ScriptError < Exception
+```
+
+If `rescue` is called without a specific error class, it will catch `StandardError` and its descendents by default. Most exceptions in core Ruby are descendents of `StandardError`, but there are some that are not usually meant to be rescued which exist in other class hierarchies which descend directly from the `Exception` base class.
