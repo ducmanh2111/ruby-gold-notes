@@ -85,3 +85,10 @@ ScriptError < Exception
 ```
 
 If `rescue` is called without a specific error class, it will catch `StandardError` and its descendents by default. Most exceptions in core Ruby are descendents of `StandardError`, but there are some that are not usually meant to be rescued which exist in other class hierarchies which descend directly from the `Exception` base class.
+
+17. Casting 
+```ruby
+a = 1.0 + 1 # Float
+a = a + (1/2r)	# Float
+a = a + (1 + 2i)	# Complex
+```
