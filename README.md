@@ -63,3 +63,11 @@ alias_method(new_name, old_name) -> symbol
 
 11. A `variadic function`
 - In mathematics and in computer programming, a `variadic function` is a function of indefinite arity, i.e., one which accepts a variable number of arguments. Support for `variadic functions` differs widely among programming languages
+
+12. Note about `Object#dup`, `Marshal.dump` and `Object#copy`
+- `Object#dup` doeas not copy an object's singleton methods.
+- `Marshal.dump` is unable to serialize objects that have singleton methods defined on them
+- There is no `Object#copy` method
+
+13. Ruby `case..when`
+[`case..when`](https://www.rubyguides.com/2015/10/ruby-case/)
