@@ -60,3 +60,6 @@ block.yield(args)
 alias_method(new_name, old_name) -> symbol
 ```
 - Note: `alias_method` will create copies of the *old_name* method. If you modify the *old_name* method after aliasing. the *new_name* method will remain unchanged.
+
+11. A `variadic function`
+- In mathematics and in computer programming, a `variadic function` is a function of indefinite arity, i.e., one which accepts a variable number of arguments. Support for `variadic functions` differs widely among programming languages
