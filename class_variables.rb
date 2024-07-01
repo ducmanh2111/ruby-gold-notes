@@ -26,14 +26,39 @@
 # MARK: Class variables are determined lexically, but have the same scope as constants.
 
 # =====NEXT QUESTION=====
-class M
-  CONST = 1
-  @@val = 2
-  @val = 3
+# class M
+#   CONST = 1
+#   @@val = 2
+#   @val = 3
+# end
+
+# class N < M
+#   p CONST # 1
+#   p @@val # 2
+#   p @val  # nil
+# end
+
+# =====NEXT QUESTION=====
+
+class BaseClass
+  private
+
+  def greet
+    # @val = 1
+    puts "Hello World! with @val=: #{@val} in BaseClass#greet"
+    @val = 1
+  end
 end
 
-class N < M
-  p CONST # 1
-  p @@val # 2
-  p @val  # nil
+class ChildClass < BaseClass
+  def greet
+    @val = 2
+    super
+    puts "Hello World! with @val=: #{@val} in ChildClass#greet"
+  end
 end
+
+
+ChildClass.new.greet
+# Hello World! with @val=: 2 in BaseClass#greet
+# Hello World! with @val=: 1 in ChildClass#greet
