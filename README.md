@@ -71,3 +71,6 @@ alias_method(new_name, old_name) -> symbol
 
 13. Ruby `case..when`
 [`case..when`](https://www.rubyguides.com/2015/10/ruby-case/)
+
+14. Only `date` library has the `Date` and `DateTime` object, and only `DateTime` has method `now`.
+`Time` has method now too, but the result is `Float`, not `Rational`
