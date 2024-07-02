@@ -71,15 +71,15 @@
 
 # =====NEXT QUESTION=====
 
-module M
-  CONST = "Hello, world"
-end
+# module M
+#   CONST = "Hello, world"
+# end
 
-class M::C
-  def awesome_method
-    CONST
-  end
-end
+# class M::C
+#   def awesome_method
+#     CONST
+#   end
+# end
 
 # module M
 #   class C
@@ -89,4 +89,62 @@ end
 #   end
 # end
 
-p M::C.new.awesome_method # uninitialized constant M::C::CONST (NameError)
+# p M::C.new.awesome_method # uninitialized constant M::C::CONST (NameError)
+
+# =====NEXT QUESTION=====
+
+# class Object
+#   CONST = "1"
+#   def const_succ
+#     CONST.succ!
+#   end
+# end
+
+# class Child1
+#   p self.ancestors  # [Child1, Object, Kernel, BasicObject]
+#   const_succ
+#   class << self
+#     # const_succ
+#   end
+# end
+
+# class Child2
+#   const_succ
+#   def initialize
+#     const_succ
+#   end
+# end
+
+# Child1.new
+# Child2.new
+
+# p Object::CONST # 5
+
+# =====NEXT QUESTION=====
+
+# module M
+#   @@val = 1
+#   CONST = 1
+#   @val = 1
+# end
+
+# class C
+#   include M
+  
+#   p CONST
+
+#   def foo
+#     p "C::CONST = #{CONST}"
+#     p "@@val in module M after include is: #{@@val}"
+#     p "@val in module M after include is: #{@val}"
+#   end
+
+# end
+
+# C.new.foo
+# "C::CONST = 1"
+# "@@val in module M after include is: 1"
+# "@val in module M after include is: "
+
+# =====NEXT QUESTION=====
+
