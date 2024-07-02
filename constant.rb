@@ -181,30 +181,41 @@
 
 # =====NEXT QUESTION=====
 
-class Object
-  CONST = "1"
-  def const_succ
-    CONST.succ!
+# class Object
+#   CONST = "1"
+#   def const_succ
+#     CONST.succ!
+#   end
+# end
+
+# class Child1
+#   const_succ
+#   class << self
+#     p self
+#     p CONST # "2"
+#     const_succ
+#   end
+# end
+
+# class Child2
+#   const_succ
+#   def initialize
+#     const_succ
+#   end
+# end
+
+# Child1.new
+# Child2.new
+
+# p Object::CONST # "5"
+
+# =====NEXT QUESTION=====
+
+class C
+  CONST = 1
+  def foo
+    CONST = 2 # dynamic constant assignment (SyntaxError)
+    p CONST
   end
 end
 
-class Child1
-  const_succ
-  class << self
-    p self
-    p CONST # "2"
-    const_succ
-  end
-end
-
-class Child2
-  const_succ
-  def initialize
-    const_succ
-  end
-end
-
-Child1.new
-Child2.new
-
-p Object::CONST # "5"
