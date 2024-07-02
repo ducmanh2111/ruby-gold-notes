@@ -124,30 +124,51 @@
 # puts C.new.m1 # 400
 
 # =====NEXT QUESTION=====
+# class C
+#   def foo
+#     p "bar"
+#   end
+# end
+
+# module M
+#   refine C do
+#     def foo
+#       super
+#       p "foo method in the refinement class invoked!!"
+#     end
+#   end
+# end
+
+# class C
+#   using M
+  
+#   def baz
+#     foo
+#   end
+# end
+
+# c = C.new
+# c.baz
+# "bar"
+# "foo method in the refinement class invoked!!"
+
+# =====NEXT QUESTION=====
+
 class C
-  def foo
-    p "bar"
+  def self.m1
+    200
   end
 end
 
-module M
-  refine C do
-    def foo
-      super
-      p "foo method in the refinement class invoked!!"
+module R
+  refine C.singleton_class do
+    p self
+    def m1
+      100
     end
   end
 end
 
-class C
-  using M
-  
-  def baz
-    foo
-  end
-end
+using R
 
-c = C.new
-c.baz
-# "bar"
-# "foo method in the refinement class invoked!!"
+puts C.m1 # 100 <= This is how you can refine a class method of a class.
