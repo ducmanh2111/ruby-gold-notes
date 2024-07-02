@@ -148,33 +148,63 @@
 
 # =====NEXT QUESTION=====
 
-class Base
-  CONST = "Hello, world"
-end
+# class Base
+#   CONST = "Hello, world"
+# end
 
-class C < Base
-end
+# class C < Base
+# end
 
-module P
-  CONST = "Good, night"
-end
+# module P
+#   CONST = "Good, night"
+# end
 
-class Base
-  prepend P
-end
+# class Base
+#   prepend P
+# end
 
-module M
-  class C
-    CONST = "Good, evening"
+# module M
+#   class C
+#     CONST = "Good, evening"
+#   end
+# end
+
+# module M
+#   class ::C
+#     def greet
+#       CONST
+#     end
+#   end
+# end
+
+# p C.new.greet # "Good, night"
+
+# =====NEXT QUESTION=====
+
+class Object
+  CONST = "1"
+  def const_succ
+    CONST.succ!
   end
 end
 
-module M
-  class ::C
-    def greet
-      CONST
-    end
+class Child1
+  const_succ
+  class << self
+    p self
+    p CONST # "2"
+    const_succ
   end
 end
 
-p C.new.greet # "Good, night"
+class Child2
+  const_succ
+  def initialize
+    const_succ
+  end
+end
+
+Child1.new
+Child2.new
+
+p Object::CONST # "5"
