@@ -40,25 +40,46 @@
 
 # =====NEXT QUESTION=====
 
-class BaseClass
-  private
+# class BaseClass
+#   private
 
-  def greet
-    # @val = 1
-    puts "Hello World! with @val=: #{@val} in BaseClass#greet"
-    @val = 1
-  end
-end
+#   def greet
+#     # @val = 1
+#     puts "Hello World! with @val=: #{@val} in BaseClass#greet"
+#     @val = 1
+#   end
+# end
 
-class ChildClass < BaseClass
-  def greet
-    @val = 2
-    super
-    puts "Hello World! with @val=: #{@val} in ChildClass#greet"
-  end
-end
+# class ChildClass < BaseClass
+#   def greet
+#     @val = 2
+#     super
+#     puts "Hello World! with @val=: #{@val} in ChildClass#greet"
+#   end
+# end
 
 
-ChildClass.new.greet
+# ChildClass.new.greet
 # Hello World! with @val=: 2 in BaseClass#greet
 # Hello World! with @val=: 1 in ChildClass#greet
+
+# =====NEXT QUESTION=====
+
+class C
+  @val = 1
+
+  def foo
+    @val = 2
+  end
+
+  def self.foo
+    @val = 3
+  end
+
+  class << self
+    @val = 4  # This will not effect to C class because this is singleton's scoped class instance variable
+  end
+end
+
+C.foo # This will set class instance variable @val = 3, which previously value is 1
+p C.instance_variable_get(:@val)  # 3
