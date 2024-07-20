@@ -14,22 +14,60 @@
 # end
 
 # =====NEXT QUESTION=====
-class Array
-  def succ_each(step = 1)
-    return enum_for(:succ_each, step) unless block_given?
+# class Array
+#   def succ_each(step = 1)
+#     return enum_for(:succ_each, step) unless block_given?
 
-    each do |int|
-      yield int + step
-    end
-  end
-end
+#     each do |int|
+#       yield int + step
+#     end
+#   end
+# end
 
-p [98, 99, 100].succ_each(2).map {|succ_chr| succ_chr.chr}  # ["d", "e", "f"]
+# p [98, 99, 100].succ_each(2).map {|succ_chr| succ_chr.chr}  # ["d", "e", "f"]
 
-[101, 102, 103].succ_each(5) do |succ_chr|
-  p succ_chr.chr
-end
+# [101, 102, 103].succ_each(5) do |succ_chr|
+#   p succ_chr.chr
+# end
 
 # "j"
 # "k"
 # "l"
+
+# =====NEXT QUESTION=====
+
+# def foo(x)
+#   if x == 1
+#     return 1
+#   else
+#     puts 'go to else'
+#   end
+
+#   'returned!!!'
+# end
+
+# p foo(1)  # 1
+# p foo(2)
+
+# go to else
+# "returned!!!"
+
+# =====NEXT QUESTION=====
+
+def foo(x)
+  begin
+    if x == 1
+      return 1
+    else
+      puts 'go to else'
+    end
+  rescue StandardError => e
+    puts e.message
+  else
+    p 'go to else of begin..rescue..else'
+  end
+
+  'returned!!!'
+end
+
+p foo(2)
